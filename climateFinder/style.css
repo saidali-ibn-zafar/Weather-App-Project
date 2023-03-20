@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primaryBackground: #15131a;
+    --greyColor: #1e1e1e;
+    --poppinsFont: "Poppins", sans-serif;
+}
+
+body{
+    color: #fff;
+    background: var(--primaryBackground);
+    font-size: 24px;
+    font-family: var(--poppinsFont);
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+    border: 4px green solid;
+    padding: 10px;
+  }
+
+.nav-container{
+    width: 100%;
+    height: 15vh;
+    background-color: #15131a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inlineBlock{
+    display: flex;
+    list-style-type: none;   
+}
+
+.inputBox{
+    width: 500px;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--greyColor);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0px 0px 0px 15px;
+}
+
+
+/* start main contents */
+
+/* list of days */
+.section1 .inlineBlock li{
+    margin-left: 20px;
+}
+
+/* end of list of days */
+
+
+/* end of main contents */
