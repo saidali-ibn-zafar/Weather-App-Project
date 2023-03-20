@@ -21,7 +21,6 @@
 body{
     color: #fff;
     background: var(--primaryBackground);
-    font-size: 24px;
     font-family: var(--poppinsFont);
 }
 
@@ -29,14 +28,14 @@ body{
     margin: 0 auto;
     max-width: 1280px;
     width: 90%;
-    border: 4px green solid;
+    /* border: 4px green solid; */
     padding: 10px;
   }
 
 .nav-container{
     width: 100%;
     height: 15vh;
-    background-color: #15131a;
+    background-color: var(--primaryBackground);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +126,7 @@ body{
     width: 90%;
     padding: 10px;
     margin: -20px 0 0 16px;
-
+    font-size: 24px;
 }
 
 .iconsImg{
@@ -141,6 +140,36 @@ body{
     gap: 20px;
     font-weight: bold;
     color: var(--blueBlackColor);
+}
+
+.descriptionInfo{
+    display: grid;
+    margin-left: 20px;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-top: -20px;
+    color: var(--fontColor);
+}
+
+.descriptionInfo span{
+    color: var(--blueBlackColor);
+}
+
+.weekDays{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+}
+
+.otherDays ul{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: -15px 0 0 0;
+    text-align: center;
 }
 
 
