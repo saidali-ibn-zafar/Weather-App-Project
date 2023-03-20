@@ -1,15 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap'); */
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 :root{
-    --primaryBackground: #15131a;
+    --primaryBackground: #100f14;
     --greyColor: #1e1e1e;
-    --poppinsFont: "Poppins", sans-serif;
+    --poppinsFont: "Aldrich", sans-serif;
+    --liFonts: 18px;
+    --fontColor: #293943;
+    --blueBlackColor: rgb(17, 16, 19);
 }
 
 body{
@@ -19,7 +25,7 @@ body{
     font-family: var(--poppinsFont);
 }
 
-.container {
+.container{
     margin: 0 auto;
     max-width: 1280px;
     width: 90%;
@@ -52,6 +58,12 @@ body{
     padding: 0px 0px 0px 15px;
 }
 
+.liFonts{
+    font-size: var(--liFonts);
+    color: rgb(17, 16, 19);
+}
+
+
 
 /* start main contents */
 
@@ -67,16 +79,70 @@ body{
 .info{
     width: 200px;
     height: 200px;
-    background-color: cyan;
+    background-color: #bcd8ed;
     border-radius: 30px;
 }
 
 .dayAndTime{
     width: 100%;
     height: 60px;
-    background-color: red;
+    background-color: #aecadf;
     border-radius: 30px 30px 0 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.days {
+    width: 100px;
+    background: #1b1b1d;
+}
+
+.weekDays{
+    width: 100%;
+    height: 60px;
+    background-color: #1b1b1d;
+    border-radius: 30px 30px 0 0px;
+    border-bottom: #444 1px solid;
+}
+
+.container .info .dayAndTime ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+}
+
+.degAndDesc{
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+    padding: 10px;
+    margin: -20px 0 0 16px;
+
+}
+
+.iconsImg{
+    width: 90px;
+    height: auto;
+}
+.container .info .degAndDesc ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+    color: var(--blueBlackColor);
+}
+
 
 /* end of info content */
 
