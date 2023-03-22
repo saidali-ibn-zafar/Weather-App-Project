@@ -17,23 +17,25 @@
 <body>
     <div class="container">
         <div class="nav-elements item_left">
-            <img src="location-marker_dark.svg" alt="location-icon" class="nav-icon1">
+            <img src="/location-marker_dark.svg" alt="location-icon" class="nav-icon1">
             <p><span id="currentCity">City</span>, Country</p>
         </div>
         <div class="nav-elements item_center">
             <ul class="inlineBlock nav-search">
-                <li>
+                <li> 
                     <input type="text" class="inputBox" id="inputValue" placeholder=" Search city...">
                 </li>
                 <li class="search_button" id="searchBtn">
-                        <img src="search_for_dark_mode.png" class="nav_icon2" alt="search">
+                    <img src="search_for_dark_mode.png"  class="nav_icon2" alt="search">
                 </li>
             </ul>
         </div>
         <div class="nav-elements item_right">
-            <div class="turn_on">
-                <img src="light_black.svg" class="mode" alt="light_mode">
-                <img src="dark_mode.svg" class="mode" alt="night_mode">
+            <!-- dark/light mode code -->
+            <div class="mode1">
+                <div class="circleChange">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -79,9 +81,9 @@
 
             <!-- p tags for more info -->
             <div class="descriptionInfo">
-                <p>Real feel: <span id="currentRealFeel">19</span>°</p>
-                <p>Wind N-E: <span id="currentWindSpeed">5-8</span> km/h</p>
-                <p>Humidity: <span id="currentHumidity">51</span>%</p>
+                <p>Real feel: <span id="currentRealFeel">19°</span></p>
+                <p>Wind N-E: <span id="currentWindSpeed">5-8 km/h</span></p>
+                <p>Humidity: <span id="currentHumidity">51%</span></p>
             </div>
 
 
@@ -179,78 +181,114 @@
     <div class="two-mains-name container">
         <div class="google-map-heading">
             <p>Global Map</p>
-            <a href="#">View Wide</a>
+            <a href="https://maps.google.com" target="_blank">View Wide</a>
         </div>
         <div class="large-cities-heading">
             <h4>Large Cities</h4>
             <a href="#"></a>
         </div>
-        
-        
-    </div>
-   <!--end of main's name--> 
 
-   <!--start of second main-->
+
+    </div>
+    <!--end of main's name-->
+
+    <!--start of second main-->
     <div class="second-main">
         <!--map-->
-   <div class="google-map"></div>
-   <!--end of map-->
+        <div class="google-map">
+            <iframe
 
-   <!--large cities class-->
-   <div class="large-cities">
-    <!--start of cities2-->
-   <div class="cities2">
-    <div class="texts">
-        <ul>
-            <li><p>US</p></li>
-            <li><h3>California</h3></li>
-            <li><h5>Mostly Sunny</h5></li>
-        </ul>
-    </div>
-    <div class="img-degreee">
-        <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
-        <h4>29°</h4>
-    </div>
-    
-  
-   </div>
-   <div class="cities2">
-    <div class="texts">
-        <ul>
-            <li><p>US</p></li>
-            <li><h3>California</h3></li>
-            <li><h5>Mostly Sunny</h5></li>
-        </ul>
-    </div>
-    <div class="img-degreee">
-        <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
-        <h4>29°</h4>
-    </div>
-    
-  
-   </div>
-   <div class="cities2">
-    <div class="texts">
-        <ul>
-            <li><p>US</p></li>
-            <li><h3>California</h3></li>
-            <li><h5>Mostly Sunny</h5></li>
-        </ul>
-    </div>
-    <div class="img-degreee">
-        <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
-        <h4>29°</h4>
-    </div>
-    
-  
-   </div>
-   
-   <!--end-->
-   </div>
-   <!--end od large cities class-->
-    </div>
-<!--end of second main-->
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d316009.7500606408!2d19.20041416470183!3d51.77278490616031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bcb24754556af%3A0xcb7cae639b21dbac!2z0JvQvtC00LfRjA!5e0!3m2!1sru!2spl!4v1679414282947!5m2!1sru!2spl"
+                width="100%" height="328px" style="border-radius: 30px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!--end of map-->
 
+        <!--large cities class-->
+        <div class="large-cities">
+            <!--start of cities2-->
+            <div class="cities2">
+                <div class="texts">
+                    <ul>
+                        <li>
+                            <p>US</p>
+                        </li>
+                        <li>
+                            <h3>California</h3>
+                        </li>
+                        <li>
+                            <h5>Mostly Sunny</h5>
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-degreee">
+                    <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
+                    <h4>29°</h4>
+                </div>
+
+
+            </div>
+            <div class="cities2">
+                <div class="texts">
+                    <ul>
+                        <li>
+                            <p>US</p>
+                        </li>
+                        <li>
+                            <h3>California</h3>
+                        </li>
+                        <li>
+                            <h5>Mostly Sunny</h5>
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-degreee">
+                    <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
+                    <h4>29°</h4>
+                </div>
+
+
+            </div>
+            <div class="cities2">
+                <div class="texts">
+                    <ul>
+                        <li>
+                            <p>US</p>
+                        </li>
+                        <li>
+                            <h3>California</h3>
+                        </li>
+                        <li>
+                            <h5>Mostly Sunny</h5>
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-degreee">
+                    <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
+                    <h4>29°</h4>
+                </div>
+
+
+            </div>
+
+            <!--end-->
+        </div>
+        <!--end od large cities class-->
+    </div>
+    <!--end of second main-->
+
+
+    <div class="footer container">
+        <div class="footer-elements">
+            <p>Copyright&copy; 2023</p>
+        </div>
+        <div class="footer-elements">
+            <img src="/" alt="logo">
+        </div>
+        <div class="footer-elements">
+
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 

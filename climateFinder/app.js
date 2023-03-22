@@ -15,15 +15,38 @@ searchBtn.addEventListener('click', function(){
         let humidityValue = data['main']['humidity'];
         let realFeelValue = data['main']['feels_like'];
         let windSpeedValue = data['wind']['speed'];
-        // let searchedCityName = data['city']['name'];
+        console.log(data);
+        let searchedCityName = data['name'];
+
 
         temp.innerHTML = Math.round(tempValue - 273);
         humidity.innerHTML = humidityValue;
         realFeel.innerHTML = Math.round(realFeelValue - 273);
         windSpeed.innerHTML = windSpeedValue;
-        // cityName.innerHTML = searchedCityName;
+        cityName.innerHTML = searchedCityName;
 
     })
 
-    .catch(err => alert("Wrong City Name!"))
+    .catch (err => {alert("bla bla bla"); console.log(err)})
+    // .catch(err => alert("Wrong City Name!"))
+    
 })
+
+
+let btnChange = document.querySelector('.circleChange');
+let bodyColor = document.body;
+        let value = 1;
+
+        btnChange.addEventListener('click', function(){
+            if(value == 0){
+                btnChange.style.marginLeft = "50px";
+                bodyColor.style.backgroundColor = "#100f14";
+                value = 1;
+            }
+            else{
+                btnChange.style.marginLeft = "0px";
+                bodyColor.style.backgroundColor = "#858dec";
+                value = 0;
+            }
+
+        })

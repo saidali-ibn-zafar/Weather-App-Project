@@ -180,6 +180,26 @@ body {
 /* end of main contents */
 
 
+/* Dark and Light mode */
+.mode1{
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--greyColor);
+}
+
+.circleChange{
+    width: 50px;
+    height: 50px;
+    background: #aecadf;
+    border-radius: 25px;
+    margin-left: 50px;
+}
+
+
+/* end of Dark and Light mode */
+
+
 
 /* Ulugbek Nav design */
 
@@ -358,7 +378,10 @@ input::placeholder {
 .google-map-heading {
     width: 73%;
     display: flex;
+    /* changes */
     justify-content: space-between;
+    align-items: center;
+    /* here */
     padding: 0 10px;
 }
 
@@ -371,6 +394,11 @@ input::placeholder {
 .google-map-heading a {
     height: 30px;
     width: 100px;
+    /* changes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* herer */
     text-align: center;
     border-radius: 15px;
 
@@ -400,12 +428,11 @@ input::placeholder {
 }
 
 .google-map {
-
     width: 100%;
     height: 332px;
-    background-color: var(--greyColor);
     /* border: 2px red solid; */
     border-radius: 30px;
+    outline: none;
 
 }
 
@@ -422,10 +449,10 @@ input::placeholder {
 
 
 .cities2 {
+    background: #1b1b1b;
     display: flex;
     width: 300px;
     height: 100px;
-    background-color: var(--greyColor);
     /* border: 2px gold solid; */
     border-radius: 30px;
 }
@@ -463,3 +490,7 @@ input::placeholder {
     margin-left: 15px;
     font-size: 20px;
 }
+
+
+
+
