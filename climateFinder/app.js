@@ -45,7 +45,7 @@ let bodyColor = document.body;
             }
             else{
                 btnChange.style.marginLeft = "0px";
-                bodyColor.style.backgroundColor = "#858dec";
+                bodyColor.style.backgroundColor = "#6096fd";
                 value = 0;
             }
 
