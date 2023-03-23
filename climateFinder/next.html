@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>darkLight</title>
+</head>
+<body style="background: black;"> 
+    <div class="mode">
+        <div class="circleChange" >
+            <img src="/light_black.svg" alt="">
+        </div>
+    </div>
+
+    <input type="text" name="city" id="cityName">
+
+    <style>
+        .mode{
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            background: red;
+        }
+        .circleChange{
+            width: 50px;
+            height: 50px;
+            background: blue;
+            border-radius: 25px;
+        }
+    </style>
+
+    <script>
+        let btnChange = document.querySelector('.circleChange');
+        let imgChange = document.getElementById('imgSource');
+        let value = 0;
+
+        btnChange.addEventListener('click', function(){
+            if(value == 0){
+                btnChange.style.marginLeft = "50px";
+                imgChange.src = 'dark_mode.svg'
+                value = 1;
+            }
+            else{
+                btnChange.style.marginLeft = "0px";
+                imgChange.src = 'light_black.svg';
+                value = 0;
+            }
+
+        })
+
+        let api = '51a9ed3379cefdcccc1c0afc1b54ad01';
+        const getData = async () => {
+    let city = 'lodz';
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`;
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      let lat = data.coord.lat;
+      let lon = data.coord.lon;
+      getDatafor7days(lat, lon);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getDatafor7days = async (lat, lon) => {
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api}`;
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      console.log("data", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+    </script>
+</body>
+</html>

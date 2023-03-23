@@ -1,11 +1,11 @@
-const searchBtn = document.getElementById("searchBtn");
-const inputValue = document.getElementById("inputValue");
-const temp = document.getElementById("currentDegree");
-const humidity = document.getElementById("currentHumidity");
-const realFeel = document.getElementById("currentRealFeel");
-const windSpeed = document.getElementById("currentWindSpeed");
-const cityName = document.getElementById("currentCity");
-const countryName = document.getElementById("currentCountry");
+let searchBtn = document.getElementById("searchBtn");
+let inputValue = document.getElementById("inputValue");
+let temp = document.getElementById("currentDegree");
+let humidity = document.getElementById("currentHumidity");
+let realFeel = document.getElementById("currentRealFeel");
+let windSpeed = document.getElementById("currentWindSpeed");
+let cityName = document.getElementById("currentCity");
+
 searchBtn.addEventListener("click", function () {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q="+inputValue.value+"&appid=51a9ed3379cefdcccc1c0afc1b54ad01"
@@ -18,15 +18,12 @@ searchBtn.addEventListener("click", function () {
       let windSpeedValue = data["wind"]["speed"];
       console.log(data);
       let searchedCityName = data["name"];
-      let countryShort = data["sys"]["country"];
-      // console.log(countryCode)
 
       temp.innerHTML = Math.round(tempValue - 273.15);
       humidity.innerHTML = humidityValue;
       realFeel.innerHTML = Math.round(realFeelValue - 273.15);
       windSpeed.innerHTML = windSpeedValue;
       cityName.innerHTML = searchedCityName;
-      countryName.innerText = countryShort;
     })
 
     .catch((err) => {
