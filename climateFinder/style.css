@@ -1,12 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); */
+/* Font Family Link */
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap'); */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 :root {
@@ -15,66 +13,39 @@
     --secondary-blue: #bcd8ed;
     --whitish-color: #cccccc;
     --greyColor: #1e1e1e;
-    --poppinsFont: "Aldrich", sans-serif;
+    --aldrichFont: "Aldrich", sans-serif;
     --liFonts: 18px;
     --transparent_white: rgba(255, 255, 255, 0.5);
     --transparent_white_lighter: rgba(255, 255, 255, 0.15);
     --days-background: #1b1b1b;
-    --fontColor-primary: #ffffff;
+    --fontColorPrimary: #ffffff;
     --fontColor: #293943;
     --shadow-main: cyan;
     --blueBlackColor: rgb(17, 16, 19);
 }
-
-
-
-html[data-theme="light"] {
-    --primaryBackground: #100f14;
-    --main--background: #aecadf;
-    --secondary-blue: #bcd8ed;
-    --whitish-color: #cccccc;
-    --greyColor: #1e1e1e;
-    --poppinsFont: "Aldrich", sans-serif;
-    --liFonts: 18px;
-    --transparent_white: rgba(255, 255, 255, 0.5);
-    --transparent_white_lighter: rgba(255, 255, 255, 0.15);
-    --days-background: #1b1b1b;
-    --fontColor-primary: #ffffff;
-    --fontColor: #293943;
-    --shadow-main: cyan;
-    --blueBlackColor: rgb(17, 16, 19);
-}
-
 
 body {
-    margin: 0;
-    padding: 0;
-    color: var(--fontColor-primary);
+    color: var(--fontColorPrimary);
     background: var(--primaryBackground);
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: var(--poppinsFont);
+    font-family: var(--aldrichFont);
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
+    display: flex;
+
     margin: 0 auto;
     max-width: 1280px;
     width: 90%;
     padding: 10px;
-}
-
-.nav {
-    margin-top: 30px;
-}
-
-.nav-container {
-    margin-top: 40px;
-    width: 100%;
-    height: 15vh;
-    background-color: var(--primaryBackground);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .inlineBlock {
@@ -90,7 +61,6 @@ body {
     width: 120px;
     height: 30px;
     border-radius: 15px;
-
     background-color: var(--greyColor);
 }
 
@@ -206,43 +176,8 @@ body {
     padding: 20px;
 }
 
-.quiz_redirection:hover::before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    border: 3px solid transparent;
-    border-radius: 40px;
-    box-shadow: 0 0 0 0 rgba(30, 245, 91, 0.8);
-    transform-origin: center center;
-    transform: scale(0);
-    transition: all 0.5s ease-in-out;
-    animation: border-animation 1s linear;
-}
 
 
-
-@keyframes border-animation {
-    0% {
-        transform: scale(0);
-        border-color: rgba(195, 45, 45, 0.8);
-        box-shadow: 0 0 0 0 rgba(30, 245, 91, 0.8);
-    }
-
-    50% {
-        transform: scale(1);
-        border-color: rgba(168, 161, 21, 0);
-        box-shadow: 0 0 0 30px rgba(77, 32, 200, 0.4);
-    }
-
-    100% {
-        transform: scale(0);
-        border-color: rgba(131, 195, 37, 0.8);
-        box-shadow: 0 0 0 0 rgba(30, 245, 91, 0.8);
-    }
-}
 
 .quiz_heading {
     display: flex;
@@ -268,7 +203,6 @@ body {
 .degAndDesc {
 
     margin: 0 auto;
-    width: 1280px;
     width: 90%;
     padding: 10px;
     margin: -20px 0 0 16px;
@@ -329,7 +263,7 @@ body {
 
 
 /* Dark and Light mode */
-.mode1 {
+.mode {
     width: 100px;
     height: 50px;
     border-radius: 25px;
@@ -353,39 +287,37 @@ body {
 
 /* style-nav */
 .nav-container {
+    padding-top: 40px;
     display: flex;
+    margin: 0 auto;
+    gap: 1%;
     width: 90%;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 
 /* style for elements on it  */
-.nav-elements {
+.navElements {
     flex-basis: 20%;
     height: 50px;
     display: flex;
-    justify-content: flex-start;
+
     align-items: center;
-
 }
-
-
 
 .item_left {
     width: auto;
     text-align: left;
-
 }
 
 .item_left span {
     font-weight: 600;
 }
 
-.item_center {
-    flex-basis: 60%;
-}
+
 
 .item_right {
     display: flex;
@@ -413,74 +345,25 @@ body {
     height: 50px;
     width: 5vw;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     justify-items: center;
-
+    border-left: 1px solid #444;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Night/Light mode switch style */
-.turn_on {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--greyColor);
-    border-radius: 25px;
-    height: 50px;
-    width: 100px;
-    padding: 0 8px 0 8px;
-    position: relative;
-    cursor: pointer;
-
-}
-
-.turn_on::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--main--background);
-    padding: 0;
-    margin: 0;
-
-
-
-}
-
-/* changing the night/light mode */
-.turn_off::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--main--background);
-    padding: 0;
-    margin: 0;
-
-
-}
-
-.mode {
-    height: 32px;
-    z-index: 111;
-
+.nav-search .search_button:hover {
+    background-color: #444;
 }
 
 
-/* Languages options style */
-/* .language {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-} */
+
+
+
 
 
 /* search bar style */
 .inputBox {
-    width: 40vw;
+    width: 35vw;
     height: 50px;
     border: none;
     border-radius: 25px 0 0 25px;
@@ -734,4 +617,197 @@ figure>img {
 
 .overlay_button button:hover {
     background: greenyellow;
+}
+
+
+
+/* responsive design for tablets */
+@media only screen and (max-width: 978px) {
+
+    .container,
+    .second-main {
+        transform: scale(0.9);
+    }
+
+    .navElements,
+    .inputBox,
+    .nav-search .search_button {
+        height: 40px;
+
+    }
+
+    .navElements #currentCity {
+        font-size: 14px;
+    }
+
+    .checked,
+    .checked_color {
+        width: 100px;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4%;
+    }
+
+
+    .mode {
+        flex-basis: 10%;
+        height: 25px;
+        width: 75px;
+
+    }
+
+    .circleChange {
+        height: 25px;
+        width: 25px;
+
+
+    }
+
+    .days {
+        order: 2;
+        flex-basis: 13.3%;
+        margin-top: 30px;
+    }
+
+    .liFonts {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 70%;
+
+    }
+
+    .liFonts li {
+        flex-basis: 40%;
+        font-size: 25px;
+    }
+
+    .nav_icon2 {
+        transform: scale(0.5);
+    }
+
+    .today_info {
+        flex-basis: 65%;
+        order: 1;
+    }
+
+    .descriptionInfo {
+        display: flex;
+        text-align: center;
+        width: 90%;
+        justify-content: center;
+        gap: 16%;
+        font-size: 1rem;
+        padding: 0;
+
+    }
+
+    .descriptionInfo .inlineBlock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 30px;
+
+
+
+    }
+
+    .quiz_redirection {
+        order: 1;
+        flex-basis: 31%;
+
+
+    }
+}
+
+
+@media only screen and (max-width: 632px) {
+    .today_info {
+        order: 1;
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+
+    .days {
+        order: 2;
+        flex-basis: 30%;
+    }
+
+    .quiz_redirection {
+        order: 3;
+        margin-top: 30px;
+        flex-basis: 100%;
+    }
+
+    .second-main {
+        display: flex;
+        flex-flow: row wrap;
+        min-height: 100%;
+    }
+
+    .google-map {
+        flex-basis: 100%;
+
+    }
+
+    .large-cities {
+        flex-basis: 100%;
+
+    }
+
+    .content {
+        
+    }
+
+    .cities {
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .text {
+        flex-basis: 50%;
+
+    }
+
+    .img-degreee {
+        flex-basis: 50%;
+        margin-left: auto;
+        align-items: center;
+    }
+
+    .item_left, .item_right, .nav-search {
+        width: 40%;
+        order: -1;
+
+    }
+
+    div.navElements.center {
+        min-width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        gap: 20%;
+    }
+
+    .footer {
+        margin-top: 350px;
+    }
+
+    .inputBox {
+        width: 79vw;
+        justify-content: center;
+    }
+
+    .search_button{
+        min-width: 50px;
+        width: 10vw;
+    }
 }
