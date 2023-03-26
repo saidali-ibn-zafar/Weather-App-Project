@@ -17,7 +17,7 @@ const searchBtn = document.getElementById("searchBtn"),
 searchBtn.addEventListener("click", function () {
   getWeatherData();
   getWeatherData2();
-
+  weeklyInfo();
 });
 
 // AddEventListener for pressing enter
@@ -25,6 +25,7 @@ searchInputValue.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     getWeatherData();
     getWeatherData2();
+    weeklyInfo();
   }
 });
 
@@ -40,7 +41,7 @@ function getWeatherData() {
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
-      let tempValue = data.main.temp;
+      // let tempValue = data.main.temp;
       let humidityValue = data.main.humidity;
       let realFeelValue = data.main.feels_like;
       let windSpeedValue = data.wind.speed;
@@ -48,13 +49,13 @@ function getWeatherData() {
       let countryShort = data.sys.country;
       let description = data.weather[0].description;
       console.log(description);
-      console.log(data);
+      
 
       // Celsius = kelvin - 273.15, so we are subtracting 273.15 to show the result in celsius...
-      let celsiusTemperature = tempValue - 273.15;
+      // let celsiusTemperature = tempValue - 273.15;
       let realFeelTemperature = realFeelValue - 273.15;
 
-      temperature.innerText = Math.round(celsiusTemperature);
+      // temperature.innerText = Math.round(celsiusTemperature);
       humidity.innerText = humidityValue;
       realFeel.innerText = Math.round(realFeelTemperature);
       windSpeed.innerText = windSpeedValue;
@@ -118,21 +119,21 @@ function getWeatherData() {
     });
 }
 
-// Dark and Light mode
-let btnChange = document.querySelector(".circleChange");
-let darkLightValue = 1; // 1 is dark 0 is light mode value
+// // Dark and Light mode
+// let btnChange = document.querySelector(".circleChange");
+// let darkLightValue = 1; // 1 is dark 0 is light mode value
 
-btnChange.addEventListener("click", function () {
-  if (darkLightValue == 0) {
-    btnChange.style.marginLeft = "50px";
-    bodyColor.style.backgroundColor = "#100f14";
-    darkLightValue = 1;
-  } else {
-    btnChange.style.marginLeft = "0px";
-    bodyColor.style.backgroundColor = "#6096fd";
-    darkLightValue = 0;
-  }
-});
+// btnChange.addEventListener("click", function () {
+//   if (darkLightValue == 0) {
+//     btnChange.style.marginLeft = "50px";
+//     bodyColor.style.backgroundColor = "#100f14";
+//     darkLightValue = 1;
+//   } else {
+//     btnChange.style.marginLeft = "0px";
+//     bodyColor.style.backgroundColor = "#6096fd";
+//     darkLightValue = 0;
+//   }
+// });
 
 // Random large cities and their info
 
@@ -171,7 +172,7 @@ function getWeatherData2() {
     result.push(largeCitiesList[randomIndex]);
     largeCitiesList.splice(randomIndex, 1);
   }
-  console.log(result);
+  // console.log(result);
 
   for (let i = 0; i < 3; i++){
     let api = `https://api.openweathermap.org/data/2.5/weather?q=${result[i]}&appid=8058e2e53a8cdc888b244254fc6ceeed`;
@@ -185,7 +186,6 @@ function getWeatherData2() {
       document.getElementById("largeCity"+(i+1)+"Country").innerHTML = data.sys.country;
       document.getElementById("largeCity"+(i+1)+"Temp").innerHTML = Math.round(temperatureValue) + "°";
       document.getElementById("largeCity"+(i+1)+"Description").innerHTML = description;
-      
 
     })
     .catch((err) => {
@@ -193,7 +193,47 @@ function getWeatherData2() {
       console.log(err);
     });
 }
+}
 
-  }
+
+
+function weeklyInfo() {
+  const api = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInputValue.value}&appid=8058e2e53a8cdc888b244254fc6ceeed`;
+  
+  fetch(api)
+    .then(response => response.json())
+    .then(data => {
+      for (let i = 0; i < 7; i++) {
+        const minTemp = Number(data.list[i].main.temp_min - 273.15).toFixed(0);
+        document.getElementById("day" + (i+1) + "Min").innerHTML = minTemp + "°";
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+
+
+
 
   
+  //Getting and displaying the text for the upcoming five days of the week
+var d = new Date();
+var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",];
+
+//Function to get the correct integer for the index of the days array
+function CheckDay(day){
+    if(day + d.getDay() > 6){
+        return day + d.getDay() - 7;
+    }
+    else{
+        return day + d.getDay();
+    }
+}
+
+    for(i = 0; i<7; i++){
+        document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
+    }
+    //------------------------------------------------------------
+

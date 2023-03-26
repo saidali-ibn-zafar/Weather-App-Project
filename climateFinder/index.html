@@ -35,7 +35,7 @@
                     <input type="text" class="inputBox" id="inputValue" placeholder=" Search city...">
                 </li>
                 <li class="search_button" id="searchBtn">
-                    <img src="icons/search_for_dark_mode.png" class="nav_icon2" alt="search">
+                    <img src="icons/search_for_dark_mode.png" class="nav_icon2" onclick="weeklyInfo()" alt="search">
                 </li>
             </ul>
         </div>
@@ -59,7 +59,7 @@
                 <div class="dayAndTime">
                     <ul class="inlineBlock liFonts">
                         <!-- Main info about the Current Weather and more -->
-                        <li id="currentDay">Monday</li>
+                        <li id="day1">Monday</li>
                         <li id="currentTime">11:42 PM</li>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
                     <ul class="inlineBlock">
                         <li>
                             <!-- Degree -->
-                            <h1><span id="currentDegree">--</span>°</h1>
+                            <h1 id="day1Min">--</h1>
                         </li>
                         <li>
                             <!-- Weather Img -->
@@ -92,13 +92,13 @@
             <!-- More info for days in a week -->
             <div class="info days">
                 <div class="weekDays">
-                    <p>Tue</p>
+                    <p id="day2">loading...</p>
                 </div>
                 <div class="otherDays">
                     <ul>
                         <li><img class="iconsImg" src="icons/hail.svg" alt="weather img"></li>
                         <li>
-                            <h2>10°</h2>
+                            <h2 id="day2Min">--°</h2>
                         </li>
                     </ul>
                 </div>
@@ -106,13 +106,13 @@
 
             <div class="info days">
                 <div class="weekDays">
-                    <p>Wed</p>
+                    <p id="day3">loading...</p>
                 </div>
                 <div class="otherDays">
                     <ul>
                         <li><img class="iconsImg" src="icons/drizzle-sunny.svg" alt="weather img"></li>
                         <li>
-                            <h2>15°</h2>
+                            <h2 id="day3Min">--°</h2>
                         </li>
                     </ul>
                 </div>
@@ -120,13 +120,13 @@
 
             <div class="info days">
                 <div class="weekDays">
-                    <p>Thu</p>
+                    <p id="day4">loading...</p>
                 </div>
                 <div class="otherDays">
                     <ul>
                         <li><img class="iconsImg" src="icons/snow-flurries.svg" alt="weather img"></li>
                         <li>
-                            <h2>7°</h2>
+                            <h2 id="day4Min">--°</h2>
                         </li>
                     </ul>
                 </div>
@@ -134,13 +134,13 @@
 
             <div class="info days">
                 <div class="weekDays">
-                    <p>Fri</p>
+                    <p id="day5">loading...</p>
                 </div>
                 <div class="otherDays">
                     <ul>
                         <li><img class="iconsImg" src="icons/windy.svg" alt="weather img"></li>
                         <li>
-                            <h2>12°</h2>
+                            <h2 id="day5Min">--°</h2>
                         </li>
                     </ul>
                 </div>
@@ -148,13 +148,13 @@
 
             <div class="info days">
                 <div class="weekDays">
-                    <p>Sat</p>
+                    <p id="day6">loading...</p>
                 </div>
                 <div class="otherDays">
                     <ul>
                         <li><img class="iconsImg" src="icons/clear-cloudy.svg" alt="weather img"></li>
                         <li>
-                            <h2>16°</h2>
+                            <h2 id="day6Min">--°</h2>
                         </li>
                     </ul>
                 </div>
@@ -162,13 +162,13 @@
 
             <div class="info days">
                 <div class="weekDays">
-                    <p>Sun</p>
+                    <p id="day7">loading...</p>
                 </div>
                 <div class="otherDays">
                     <ul>
                         <li><img class="iconsImg" src="icons/hail.svg" alt="weather img"></li>
                         <li>
-                            <h2>9°</h2>
+                            <h2 id="day7Min">--°</h2>
                         </li>
                     </ul>
                 </div>
