@@ -119,32 +119,8 @@ function getWeatherData() {
     });
 }
 
-// // Dark and Light mode
-// let btnChange = document.querySelector(".circleChange");
-// let darkLightValue = 1; // 1 is dark 0 is light mode value
-
-// btnChange.addEventListener("click", function () {
-//   if (darkLightValue == 0) {
-//     btnChange.style.marginLeft = "50px";
-//     bodyColor.style.backgroundColor = "#100f14";
-//     darkLightValue = 1;
-//   } else {
-//     btnChange.style.marginLeft = "0px";
-//     bodyColor.style.backgroundColor = "#6096fd";
-//     darkLightValue = 0;
-//   }
-// });
 
 // Random large cities and their info
-
-/* These variables store references to various HTML elements on the page, including the search button, input field,
-   and elements used to display weather information. They are declared using const and initialized with the corresponding
-   HTML element using the getElementById() method.*/
-const largeCity1 = document.getElementById("largeCity1"),
-  largeCity2 = document.getElementById("largeCity2"),
-  largeCity3 = document.getElementById("largeCity3");
-
-
 function getWeatherData2() {
   let largeCitiesList = [
     "tokyo",
@@ -204,8 +180,8 @@ function weeklyInfo() {
     .then(response => response.json())
     .then(data => {
       for (let i = 0; i < 7; i++) {
-        const minTemp = Number(data.list[i].main.temp_min - 273.15).toFixed(0);
-        document.getElementById("day" + (i+1) + "Min").innerHTML = minTemp + "°";
+        const Temp = Number(data.list[i].main.temp - 273.15).toFixed(0);
+        document.getElementById("day" + (i+1) + "Temp").innerHTML = Temp + "°";
       }
     })
     .catch(err => {
@@ -215,12 +191,10 @@ function weeklyInfo() {
 
 
 
-
-
   
-  //Getting and displaying the text for the upcoming five days of the week
-var d = new Date();
-var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",];
+//Getting and displaying the text for the upcoming five days of the week
+let d = new Date();
+let weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",];
 
 //Function to get the correct integer for the index of the days array
 function CheckDay(day){

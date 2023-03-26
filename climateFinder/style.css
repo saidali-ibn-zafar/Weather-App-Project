@@ -5,22 +5,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
 }
 
 :root {
-    --primaryBackground: #100f14;
+    --primaryBackground: #0d0c10;
     --main--background: #aecadf;
     --secondary-blue: #bcd8ed;
-    --whitish-color: #cccccc;
-    --greyColor: #1e1e1e;
+    --whitish-color: #fdfdfd;
+    --greyColor: rgba(0,0,0,.4);
     --aldrichFont: "Aldrich", sans-serif;
     --liFonts: 18px;
     --transparent_white: rgba(255, 255, 255, 0.5);
     --transparent_white_lighter: rgba(255, 255, 255, 0.15);
-    --days-background: #1b1b1b;
+    --days-background: rgba(2,0,0,.5);
     --fontColorPrimary: #ffffff;
     --fontColor: #293943;
-    --shadow-main: cyan;
+    --shadow-main: rgb(0, 166, 255);
     --blueBlackColor: rgb(17, 16, 19);
 }
 
@@ -104,13 +105,13 @@ body {
 
 .today_info {
     min-width: 170px;
-
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .today_info:hover {
     transform: scale(1.05);
     box-shadow: 5px 5px 15px;
-    transition: 0.6s;
 }
 
 .dayAndTime {
@@ -135,7 +136,8 @@ body {
     width: 7.8125%;
     min-width: 70px;
     background: var(--days-background);
-    /* background: rgba(255, 255, 255, 0.3);  when there is a image on the background we can apply*/
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .days:hover,
@@ -147,9 +149,10 @@ body {
 .weekDays {
     width: 100%;
     height: 60px;
-    background-color: var(--days-background);
+    background-color: rgba(0, 0,0, 0.4);
     border-radius: 30px 30px 0 0px;
     border-bottom: #444 1px solid;
+    
 }
 
 .container .info .dayAndTime ul {
@@ -164,19 +167,41 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     min-width: 170px;
     overflow: hidden;
     flex-basis: 26.56%;
     height: 200px;
     border-radius: 30px;
     background-color: var(--main--background);
-    box-shadow: 0 5px 15px var(--primaryBackground) inset;
-    /* border: 3px solid var(--whitish-color); */
+    box-shadow: 0px 2px 15px 2px rgb(135, 10, 135) ;
+    border: 1px solid var(--whitish-color);
     padding: 20px;
+    animation: shadow-scale 1s infinite;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
+.quiz_redirection:hover{
+    transform: scale(0.98);
+}
 
+@keyframes shadow-scale {
+    0% {
+    box-shadow: 0px 2px 15px 2px rgb(135, 10, 135) ;
+    }
+    50% {
+    box-shadow: 0px 4px 25px 4px rgb(135, 10, 135) ;
+    }
+    100% {
+        box-shadow: 0px 2px 15px 2px rgb(135, 10, 135) ;
+    }
+  }
+
+.purpleColor{
+    color: purple;
+}
 
 
 .quiz_heading {
@@ -349,6 +374,7 @@ body {
     justify-items: center;
     border-left: 1px solid #444;
     transition: all 0.2s ease-in-out;
+    border: 1px solid var(--secondary-blue);
 }
 
 .nav-search .search_button:hover {
@@ -372,6 +398,7 @@ body {
     font-size: 18px;
     color: var(--whitish-color);
     padding: 0px 0px 0px 15px;
+    border: 1px solid var(--secondary-blue);
 }
 
 .inputBox:focus {
@@ -389,6 +416,10 @@ input::placeholder {
     transform: scale(0.7);
 }
 
+a{
+    text-decoration: none;
+    color: #fff;
+}
 
 /*name of Two big main*/
 .two-mains-name {
@@ -464,7 +495,10 @@ input::placeholder {
     height: 100%;
     border-radius: 30px;
     outline: none;
+}
 
+iframe:hover{
+    transform: scale(0.98);
 }
 
 .large-cities {
@@ -484,6 +518,8 @@ input::placeholder {
     width: 305;
     height: 102.8px;
     border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .texts {
@@ -718,10 +754,9 @@ figure>img {
     .quiz_redirection {
         order: 1;
         flex-basis: 31%;
-
-
     }
 }
+
 
 
 @media only screen and (max-width: 632px) {
