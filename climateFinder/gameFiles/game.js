@@ -47,7 +47,7 @@ nextBtn.addEventListener("click", function () {
       answersBox.splice(randomIndex, 1); // splicing element after using it
       const button = document.getElementById(`btn${i}`);
       button.value = randomElement;
-      button.innerHTML = randomElement;
+      button.innerHTML = randomElement + " C°";
       button.addEventListener("click", function () {
         // if it is correct then some changes ...
         if (parseInt(button.value) === sum) {
