@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title for the app -->
+    <title>ClimateFinder</title>
+
+    <!-- Favicon link -->
+    <link rel="icon" type="image/x-icon" href="/images/climateFinderFav.png">
+
+    <!-- Style CSS link -->
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<!-- Body -->
+
+<body onload="getWeatherData2()">
+
+
+    <!-- Navigation Bar -->
+    <div class="nav-container nav">
+        <div class="navElements item_left">
+            <img src="icons/location-marker_dark.svg" alt="location-icon" class="nav-icon1">
+            <p><span id="currentCity">City</span>,<span id="currentCountry">Country</span></p>
+        </div>
+        <div class="navElements center">
+            <ul class="inlineBlock nav-search">
+                <li class="search-box">
+                    <input type="text" class="inputBox" id="inputValue" placeholder=" Search city...">
+                    <ul class="suggestions"></ul>   
+                </li>
+                <li class="search_button" id="searchBtn">
+                    <img src="icons/search_for_dark_mode.png" class="nav_icon2" onclick="weeklyInfo()" alt="search">
+                </li>
+            </ul>
+        </div>
+        <div class="navElements item_right">
+            
+            <div class="mode">
+                
+                <!-- <div class="circleChange"></div> -->
+            </div>
+        </div>
+    </div>
+    <!-- End of Navigation Bar -->
+
+
+    <br>
+
+    <div class="content">
+        <!-- Main Contents -->
+
+        <div class="container">
+            <!-- Weather Info -->
+            <div class="info today_info">
+                <div class="dayAndTime">
+                    <ul class="inlineBlock liFonts">
+                        <!-- Main info about the Current Weather and more -->
+                        <li id="day1">Monday</li>
+                        <li id="currentTime">loading...</li>
+                    </ul>
+                </div>
+
+                <!-- Degree and Weather Img -->
+                <div class="degAndDesc">
+                    <ul class="inlineBlock">
+                        <li>
+                            <!-- Degree -->
+                            <h1 id="day1Temp">--</h1>
+                        </li>
+                        <li>
+                            <!-- Weather Img -->
+                            <img class="iconsImg" id="iconWeatherImage" src="icons/clear-cloudy.svg"
+                                alt="weather img" />
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- p tags for more info -->
+                <div class="descriptionInfo">
+                    <p>Real feel: <span id="currentRealFeel">--</span>°
+                        <span id="description">--</span>
+                    </p>
+                    <p>Wind N-E: <span id="currentWindSpeed">--</span>km/h</p>
+                    <p>Humidity: <span id="currentHumidity">--</span>%</p>
+                </div>
+
+
+
+            </div>
+
+            <!-- More info for days in a week -->
+            <div class="info days">
+                <div class="weekDays">
+                    <p id="day2">loading...</p>
+                </div>
+                <div class="otherDays">
+                    <ul>
+                        <li><img class="iconsImg" src="icons/hail.svg" alt="weather img"></li>
+                        <li>
+                            <h2 id="day2Temp">--°</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info days">
+                <div class="weekDays">
+                    <p id="day3">loading...</p>
+                </div>
+                <div class="otherDays">
+                    <ul>
+                        <li><img class="iconsImg" src="icons/drizzle-sunny.svg" alt="weather img"></li>
+                        <li>
+                            <h2 id="day3Temp">--°</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info days">
+                <div class="weekDays">
+                    <p id="day4">loading...</p>
+                </div>
+                <div class="otherDays">
+                    <ul>
+                        <li><img class="iconsImg" src="icons/snow-flurries.svg" alt="weather img"></li>
+                        <li>
+                            <h2 id="day4Temp">--°</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info days">
+                <div class="weekDays">
+                    <p id="day5">loading...</p>
+                </div>
+                <div class="otherDays">
+                    <ul>
+                        <li><img class="iconsImg" src="icons/windy.svg" alt="weather img"></li>
+                        <li>
+                            <h2 id="day5Temp">--°</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info days">
+                <div class="weekDays">
+                    <p id="day6">loading...</p>
+                </div>
+                <div class="otherDays">
+                    <ul>
+                        <li><img class="iconsImg" src="icons/clear-cloudy.svg" alt="weather img"></li>
+                        <li>
+                            <h2 id="day6Temp">--°</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info days">
+                <div class="weekDays">
+                    <p id="day7">loading...</p>
+                </div>
+                <div class="otherDays">
+                    <ul>
+                        <li><img class="iconsImg" src="icons/hail.svg" alt="weather img"></li>
+                        <li>
+                            <h2 id="day7Temp">--°</h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <a class="quiz_redirection" href="gameFiles/gameIndex.html" >
+                <h1>Game</h1>
+                <p>for <span class="purpleColor">Kids</span></p>
+            </a>
+        </div>
+
+
+        <!---second main-->
+        <!--start of second main-->
+        <div class="second-main">
+            <!--map-->
+            <div class="google-map">
+                <div class="google-map-heading">
+                    <p>Global Map</p>
+                    <a href="https://maps.google.com" target="_blank">View Wide</a>
+                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d316009.7500606408!2d19.20041416470183!3d51.77278490616031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bcb24754556af%3A0xcb7cae639b21dbac!2z0JvQvtC00LfRjA!5e0!3m2!1sru!2spl!4v1679414282947!5m2!1sru!2spl"
+                    width="100%" height="328px" style="border-radius: 30px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!--end of map-->
+
+            <!--large cities class-->
+            <div class="large-cities">
+                <div class="large-cities-heading">
+                    <h4>Large Cities</h4>
+                    <a href="#"></a>
+                </div>
+                <!--start of cities2-->
+                <div class="cities2">
+                    <div class="texts">
+                        <ul>
+                            <li>
+                                <p id="largeCity1Country">loading...</p>
+                            </li>
+                            <li>
+                                <h3 id="largeCity1">loading...</h3>
+                            </li>
+                            <li>
+                                <h5 id="largeCity1Description">loading...</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="img-degreee">
+                        <img class="iconsImg2" src="icons/clear-cloudy.svg" alt="weather img">
+                        <h4 id="largeCity1Temp">loading...</h4>
+                    </div>
+
+
+                </div>
+                <div class="cities2">
+                    <div class="texts">
+                        <ul>
+                            <li>
+                                <p id="largeCity2Country">loading...</p>
+                            </li>
+                            <li>
+                                <h3 id="largeCity2">loading...</h3>
+                            </li>
+                            <li>
+                                <h5 id="largeCity2Description">loading...</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="img-degreee">
+                        <img class="iconsImg2" src="icons/clear-cloudy-night.svg" alt="weather img">
+                        <h4 id="largeCity2Temp">loading...</h4>
+                    </div>
+
+
+                </div>
+                <div class="cities2">
+                    <div class="texts">
+                        <ul>
+                            <li>
+                                <p id="largeCity3Country">loading..</p>
+                            </li>
+                            <li>
+                                <h3 id="largeCity3">loading...</h3>
+                            </li>
+                            <li>
+                                <h5 id="largeCity3Description">loading...</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="img-degreee">
+                        <img class="iconsImg2" src="icons/drizzle-sunny.svg" alt="weather img">
+                        <h4 id="largeCity3Temp">loading...</h4>
+                    </div>
+
+                </div>
+
+                <!--end-->
+            </div>
+            <!--end od large cities class-->
+        </div>
+        <!--end of second main-->
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-elements">
+            <p>Copyright&copy; <span id="current-year"></span></p>
+        </div>
+        <div class="footer-elements">
+            <img src="images/climateFinderFav.png" alt="logo">
+        </div>
+        <div class="footer-elements">
+            <p>Developed by <span>Uzbek Coders</span></p>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+
+</html>

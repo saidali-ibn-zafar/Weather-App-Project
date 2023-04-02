@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "climateFinder",
+			"path": "."
+		},
+		{
+			"name": "Wheather-App",
+			"path": "Wheather-App"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "climateFinder"
+	}
+}
