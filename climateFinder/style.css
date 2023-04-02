@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     transition: all 0.3s ease-in-out;
+    
 }
 
 :root {
@@ -13,12 +14,12 @@
     --main--background: #aecadf;
     --secondary-blue: #bcd8ed;
     --whitish-color: #fdfdfd;
-    --greyColor: rgba(0,0,0,.4);
+    --greyColor: rgba(0, 0, 0, .4);
     --aldrichFont: "Aldrich", sans-serif;
     --liFonts: 18px;
     --transparent_white: rgba(255, 255, 255, 0.5);
     --transparent_white_lighter: rgba(255, 255, 255, 0.15);
-    --days-background: rgba(2,0,0,.5);
+    --days-background: rgba(2, 0, 0, .5);
     --fontColorPrimary: #ffffff;
     --fontColor: #293943;
     --shadow-main: rgb(0, 166, 255);
@@ -149,10 +150,10 @@ body {
 .weekDays {
     width: 100%;
     height: 60px;
-    background-color: rgba(0, 0,0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 30px 30px 0 0px;
     border-bottom: #444 1px solid;
-    
+
 }
 
 .container .info .dayAndTime ul {
@@ -175,7 +176,7 @@ body {
     height: 200px;
     border-radius: 30px;
     background-color: var(--main--background);
-    box-shadow: 0px 2px 15px 2px rgb(135, 10, 135) ;
+    box-shadow: 0px 2px 15px 2px rgb(135, 10, 135);
     border: 1px solid var(--whitish-color);
     padding: 20px;
     animation: shadow-scale 1s infinite;
@@ -183,23 +184,25 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-.quiz_redirection:hover{
+.quiz_redirection:hover {
     transform: scale(0.98);
 }
 
 @keyframes shadow-scale {
     0% {
-    box-shadow: 0px 2px 15px 2px rgb(135, 10, 135) ;
+        box-shadow: 0px 2px 15px 2px rgb(135, 10, 135);
     }
-    50% {
-    box-shadow: 0px 4px 25px 4px rgb(135, 10, 135) ;
-    }
-    100% {
-        box-shadow: 0px 2px 15px 2px rgb(135, 10, 135) ;
-    }
-  }
 
-.purpleColor{
+    50% {
+        box-shadow: 0px 4px 25px 4px rgb(135, 10, 135);
+    }
+
+    100% {
+        box-shadow: 0px 2px 15px 2px rgb(135, 10, 135);
+    }
+}
+
+.purpleColor {
     color: purple;
 }
 
@@ -289,10 +292,10 @@ body {
 
 /* Dark and Light mode */
 .mode {
-    width: 100px;
-    height: 50px;
-    border-radius: 25px;
-    background: var(--greyColor);
+    /* width: 100px;
+    height: 50px; */
+    /* border-radius: 25px; */
+    /* background: var(--greyColor); */
 }
 
 .circleChange {
@@ -349,19 +352,41 @@ body {
     width: 20vmax;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .nav-icon1 {
     padding-right: 10px;
-
 }
 
 .nav-search {
     display: flex;
     align-items: center;
+}
 
+.search-box {
+    position: relative;
+}
+
+.suggestions {
+    list-style-type: none;
+    position: absolute;
+    width: 95%;
+    top: 100%;
+    left: 15px;
+    background-color: var(--greyColor);
+    border-radius: 0 0px 15px 15px;
+    padding: 5px 10px 5px 20px;
+    z-index: 999;
+    max-height: 150px;
+    overflow-y: auto; 
+}
+
+.suggestions li {
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    color: rgb(0, 229, 255);
 }
 
 .nav-search .search_button {
@@ -416,7 +441,7 @@ input::placeholder {
     transform: scale(0.7);
 }
 
-a{
+a {
     text-decoration: none;
     color: #fff;
 }
@@ -497,7 +522,7 @@ a{
     outline: none;
 }
 
-iframe:hover{
+iframe:hover {
     transform: scale(0.98);
 }
 
@@ -687,11 +712,11 @@ figure>img {
         gap: 4%;
     }
 
-
     .mode {
-        flex-basis: 10%;
-        height: 25px;
-        width: 75px;
+        flex-basis: 15%;
+        height: 0;
+        width: 0;
+        
 
     }
 
@@ -764,12 +789,17 @@ figure>img {
         order: 1;
         flex-basis: 100%;
         margin-bottom: 30px;
+        height: 230px;
+    }
+    .descriptionInfo {
+        transform: scale(0.9);
     }
 
     .days {
         order: 2;
         flex-basis: 30%;
     }
+
 
     .quiz_redirection {
         order: 3;
@@ -793,15 +823,13 @@ figure>img {
 
     }
 
-    .content {
-        
-    }
+    
 
     .cities {
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
-        
+
     }
 
     .text {
@@ -809,17 +837,26 @@ figure>img {
 
     }
 
+
     .img-degreee {
         flex-basis: 50%;
         margin-left: auto;
         align-items: center;
     }
 
-    .item_left, .item_right, .nav-search {
+    .item_left,
+    
+    .nav-search {
         width: 40%;
         order: -1;
 
     }
+
+    .item_right {
+        width: 0%;
+    }
+
+    
 
     div.navElements.center {
         min-width: 100%;
@@ -841,8 +878,21 @@ figure>img {
         justify-content: center;
     }
 
-    .search_button{
+    .search_button {
         min-width: 50px;
         width: 10vw;
     }
+
+    .content {
+        margin-top: -80px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+
+    .footer-elements img {
+        transform: scale(1.3);
+    }
+    
 }

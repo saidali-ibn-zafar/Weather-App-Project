@@ -10,9 +10,49 @@ const searchBtn = document.getElementById("searchBtn"),
   cityName = document.getElementById("currentCity"),
   countryName = document.getElementById("currentCountry"),
   svgInfo = document.getElementById("iconWeatherImage"),
+  time24 = document.getElementById("currentTime")
   mainBody = document.body;
 
 
+
+// // Prompt the user for the country name
+
+// // Make a GET request to the TimeZoneDB API
+// fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=NTBTWQK5XRG7&format=json&by=zone&zone=${searchInputValue.value}}`)
+//   .then(response => response.json())
+//   .then(data => {
+//     // Extract the current time from the response data
+//     const currentTime = data.formatted;
+
+//     console.log(currentTime);
+//     // Display the current time to the user
+//     time24.innerHTML = currentTime;
+//   })
+//   .catch(error => console.log(error))
+
+
+ // Time API 
+ let timeApi = `https://api.ipgeolocation.io/timezone?apiKey=857a7779119b44b88b4064d241f04ba7&location=${searchInputValue.value}`;
+ fetch(timeApi)
+ .then((response) => response.json())
+ .then((geo) => {
+   let currentTime24 = geo.time_24;
+
+   time24.innerText = currentTime24;
+ })
+ .catch((err) => {
+   alert("Error");
+   console.log(err);
+ });
+
+
+
+  // document.querySelectorAll(".suggestions").forEach(function(suggestion) {
+  //   suggestion.addEventListener("click", function() {
+  //     const input = document.querySelector("#inputValue");
+  //     input.value = this.innerText;
+  //   });
+  // });
 // AddEventListener for clicking btn
 searchBtn.addEventListener("click", function () {
   getWeatherData();
@@ -36,6 +76,7 @@ function getWeatherData() {
     alert("Please enter a city name to search for weather information.");
     return;
   }
+  
 
   let api = `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValue.value}&appid=8058e2e53a8cdc888b244254fc6ceeed`;
   fetch(api)
@@ -136,9 +177,15 @@ function getWeatherData2() {
     "new york",
     "istanbul",
     "paris",
-    "Moscow",
+    "moscow",
     "dhaka",
-    "buenos aires"
+    "buenos aires",
+    "medina",
+    "tashkent",
+    "samarkand",
+    "andijan",
+    "qashqadaryo",
+    "palestine"
   ];
 
   // Random Cities and updating in HTML
@@ -151,8 +198,8 @@ function getWeatherData2() {
   // console.log(result);
 
   for (let i = 0; i < 3; i++){
-    let api = `https://api.openweathermap.org/data/2.5/weather?q=${result[i]}&appid=8058e2e53a8cdc888b244254fc6ceeed`;
-    fetch(api)
+    let api1 = `https://api.openweathermap.org/data/2.5/weather?q=${result[i]}&appid=8058e2e53a8cdc888b244254fc6ceeed`;
+    fetch(api1)
     .then((response) => response.json())
     .then((data) => {
       let temperatureValue = data.main.temp - 273.15;
@@ -211,3 +258,83 @@ function CheckDay(day){
     }
     //------------------------------------------------------------
 
+
+
+    window.onload = function () {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+      } else {
+          console.error("Geolocation is not supported");
+      }
+  };
+
+  function successCallback(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const apiKey = '8058e2e53a8cdc888b244254fc6ceeed';
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+      fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+              const temperature = Math.round(data.main.temp);
+              const realFeel = data.main.feels_like;
+              const description = data.weather[0].description;
+              const city = data.name;
+              const country = data.sys.country;
+              const windspeed = data.wind.speed;
+              const humidity = data.main.humidity;
+
+              document.getElementById('day1Temp').textContent = `${temperature}°C`;
+              document.getElementById('currentRealFeel').textContent = `${realFeel}`;
+              document.getElementById('description').textContent = description;
+              document.getElementById('currentCity').textContent = `${city}`;
+              document.getElementById('currentCountry').textContent = `${country}`;
+              document.getElementById('currentWindSpeed').textContent = `${windspeed}`;
+              document.getElementById('currentHumidity').textContent = `${humidity}`;
+
+              // Show an alert to the user
+              const alertMessage = `The weather in ${city}, ${country} is ${description} with a temperature of ${temperature}°C, a real feel of ${realFeel}°C, wind speed of ${windspeed} m/s, and humidity of ${humidity}%. If u need more weekly information of where u are now, just type on search bar!`;
+              alert(alertMessage);
+          })
+          .catch(error => console.error(error));
+  }
+
+
+  function errorCallback(error) {
+      console.error(error.message);
+  }
+
+
+  $(document).ready(function() {
+    $('#inputValue').keyup(function() {
+        var query = $(this).val();
+        if(query != '') {
+            $.ajax({
+                url: 'https://api.openweathermap.org/data/2.5/find?q=' + query + '&type=like&mode=json&units=metric&APPID=8058e2e53a8cdc888b244254fc6ceeed',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var suggestions = [];
+                    $.each(data.list, function(index, value) {
+                        suggestions.push('<li>' + value.name + ', ' + value.sys.country + '</li>');
+                    });
+                    $('.suggestions').html(suggestions.join(''));
+                }
+            });
+        } else {
+            $('.suggestions').empty();
+        }
+    });
+
+    $(document).on('click', '.suggestions li', function() {
+        var city = $(this).text();
+        $('#inputValue').val(city);
+        $('.suggestions').empty();
+    });
+});
+
+
+// getting the current year 
+const currentYear = document.querySelector('#current-year');
+currentYear.innerHTML = new Date().getFullYear();

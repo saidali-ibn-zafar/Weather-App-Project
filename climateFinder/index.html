@@ -14,6 +14,7 @@
     <!-- Style CSS link -->
     <link rel="stylesheet" href="style.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Font Awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
@@ -31,8 +32,9 @@
         </div>
         <div class="navElements center">
             <ul class="inlineBlock nav-search">
-                <li>
+                <li class="search-box">
                     <input type="text" class="inputBox" id="inputValue" placeholder=" Search city...">
+                    <ul class="suggestions"></ul>   
                 </li>
                 <li class="search_button" id="searchBtn">
                     <img src="icons/search_for_dark_mode.png" class="nav_icon2" onclick="weeklyInfo()" alt="search">
@@ -40,8 +42,10 @@
             </ul>
         </div>
         <div class="navElements item_right">
+            
             <div class="mode">
-                <div class="circleChange"></div>
+                
+                <!-- <div class="circleChange"></div> -->
             </div>
         </div>
     </div>
@@ -60,7 +64,7 @@
                     <ul class="inlineBlock liFonts">
                         <!-- Main info about the Current Weather and more -->
                         <li id="day1">Monday</li>
-                        <li id="currentTime">11:42 PM</li>
+                        <li id="currentTime">loading...</li>
                     </ul>
                 </div>
 
@@ -73,14 +77,17 @@
                         </li>
                         <li>
                             <!-- Weather Img -->
-                            <img class="iconsImg"  id="iconWeatherImage" src="icons/clear-cloudy.svg" alt="weather img" />
+                            <img class="iconsImg" id="iconWeatherImage" src="icons/clear-cloudy.svg"
+                                alt="weather img" />
                         </li>
                     </ul>
                 </div>
 
                 <!-- p tags for more info -->
                 <div class="descriptionInfo">
-                    <p>Real feel: <span id="currentRealFeel">--</span>°</p>
+                    <p>Real feel: <span id="currentRealFeel">--</span>°
+                        <span id="description">--</span>
+                    </p>
                     <p>Wind N-E: <span id="currentWindSpeed">--</span>km/h</p>
                     <p>Humidity: <span id="currentHumidity">--</span>%</p>
                 </div>
@@ -174,11 +181,11 @@
                 </div>
             </div>
 
-            
-                <a class="quiz_redirection" href="popu.html" target="_blank">
-                    <h1>Game</h1>
-                    <p>for <span class="purpleColor">Kids</span></p>
-                </a>
+
+            <a class="quiz_redirection" href="gameFiles/gameIndex.html" >
+                <h1>Game</h1>
+                <p>for <span class="purpleColor">Kids</span></p>
+            </a>
         </div>
 
 
@@ -241,7 +248,7 @@
                         </ul>
                     </div>
                     <div class="img-degreee">
-                        <img class="iconsImg2"  src="icons/clear-cloudy-night.svg" alt="weather img">
+                        <img class="iconsImg2" src="icons/clear-cloudy-night.svg" alt="weather img">
                         <h4 id="largeCity2Temp">loading...</h4>
                     </div>
 
@@ -273,12 +280,12 @@
             <!--end od large cities class-->
         </div>
         <!--end of second main-->
-        
+
     </div>
-    
+
     <div class="footer">
         <div class="footer-elements">
-            <p>Copyright&copy; 2023</p>
+            <p>Copyright&copy; <span id="current-year"></span></p>
         </div>
         <div class="footer-elements">
             <img src="images/climateFinderFav.png" alt="logo">
@@ -287,6 +294,7 @@
             <p>Developed by <span>Uzbek Coders</span></p>
         </div>
     </div>
+    
     <script src="app.js"></script>
 </body>
 
